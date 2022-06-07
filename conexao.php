@@ -10,4 +10,4 @@
     if (!$conexao) {
         die("errou ai cuzao" .mysqli_connect_erro());
     }
-?>
+

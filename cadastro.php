@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,5 +57,6 @@
 
         mysqli_close($conexao);
     ?>
+
 </body>
 </html>
