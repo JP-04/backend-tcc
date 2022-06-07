@@ -1,44 +1,47 @@
+<?php
+        include_once("conexao.php");
+        
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro</title>
+    <title>Document</title>
 </head>
 <body>
     <form action="cadastro.php" method="POST">
-        Responsável <br>
-        <input type="text" placeholder="Nome" name="nome"> <br>
-        <input type="email" placeholder="Email" name="email"> <br>
-        <input type="password" placeholder="Senha" name="senha"> <br> <br>
-        <input type="password" placeholder="Repita a senha" name="repitaSenha"> <br> <br>
-        Criança <br>
-        <input type="text" placeholder="Nome da criança" name="nomeCrianca"> <br>
-        <input type="number" placeholder="Idade da criança" name="idadeCrianca"> <br>
-        <input type="number" placeholder="Série escolar" name="serieCrianca"> <br>
+        responsável <br>
+        <input type="text" placeholder="nome" name="nome"> <br>
+        <input type="email" placeholder="email" name="email"> <br>
+        <input type="password" placeholder="senha" name="senha"> <br> <br>
+        <input type="password" placeholder="repitaSenha" name="repitaSenha"> <br> <br>
+        criança <br>
+        <input type="text" placeholder="nome da criança" name="nomeCrianca"> <br>
+        <input type="number" placeholder="idade da criança" name="idadeCrianca"> <br>
+        <input type="number" placeholder="serie escolar" name="serieCrianca"> <br>
         <input type="text" name="sexoCrianca">
         <!-- <span>Sexo da criança </span> <br>
         Feminino<input type="radio" name="sexoCrianca" value="f" checked> <br>
         Masculino<input type="radio" name="sexoCrianca" value="m"> <br> -->
         
 
-        <button>Cadastrar</button>
+        <button>cadastrar</button>
     </form>
-    <?php
-        include_once("conexao.php");
-        $nome  = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $repitaSenha = $_POST['repitaSenha'];
+  <?php 
+        $nome  =$conexao->real_escape_string ( $_POST['nome'  ]);
+        $email =$conexao->real_escape_string ( $_POST['email' ]);
+        $senha = $conexao->real_escape_string( $_POST['senha' ]);
+        $repitaSenha = $conexao->real_escape_string($_POST['repitaSenha']);
         
-        $nomeCrianca  = $_POST['nomeCrianca'];
-        $idadeCrianca = $_POST['idadeCrianca'];
-        $serieCrianca = $_POST['serieCrianca'];
-        $sexoCrianca  = $_POST['sexoCrianca'];
+        $nomeCrianca  = $conexao->real_escape_string($_POST['nomeCrianca'  ]);
+        $idadeCrianca = $conexao->real_escape_string($_POST['idadeCrianca' ]);
+        $serieCrianca = $conexao->real_escape_string($_POST['serieCrianca' ]);
+        $sexoCrianca  = $conexao->real_escape_string($_POST['sexoCrianca'  ]);
         
         if ($senha == $repitaSenha) {
-            $sql = "INSERT INTO cadastro(nomeResponsavel, email, senha, nomeCrianca , idadeCrianca, serieCrianca, sexoCrianca)
+            $sql = "INSERT INTO cadastro(nomeResponsavel, email, senha, nomeCrianca , idadeCriaca, serieCrianca, sexoCrianca)
             VALUES ('$nome', '$email', '$senha', '$nomeCrianca', '$idadeCrianca','$serieCrianca', '$sexoCrianca')";
         }
         if($senha != $repitaSenha){
