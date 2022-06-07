@@ -54,7 +54,7 @@
             }
 
             // Salva os dados encontrados na sessão
-            $_SESSION['id'] = $usuario['id'];
+            $_SESSION['email'] = $usuario['email'];
             header("Location: dashboard.php");
             exit;
         }    
