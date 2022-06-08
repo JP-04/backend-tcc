@@ -9,6 +9,9 @@
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
     if (!$conexao) {
+
         die("Tente novamente" .mysqli_connect_error());
+
+        
     }
 

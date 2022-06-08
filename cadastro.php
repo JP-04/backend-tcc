@@ -1,5 +1,8 @@
+<?php
+        include_once("conexao.php");
+        
+    ?>
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,17 +29,16 @@
 
         <button>cadastrar</button>
     </form>
-    <?php
-        include_once("conexao.php");
-        $nome  = $_POST['nome'];
-        $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $repitaSenha = $_POST['repitaSenha'];
+  <?php 
+        $nome  =$conexao->real_escape_string ( $_POST['nome'  ]);
+        $email =$conexao->real_escape_string ( $_POST['email' ]);
+        $senha = $conexao->real_escape_string( $_POST['senha' ]);
+        $repitaSenha = $conexao->real_escape_string($_POST['repitaSenha']);
         
-        $nomeCrianca  = $_POST['nomeCrianca'];
-        $idadeCrianca = $_POST['idadeCrianca'];
-        $serieCrianca = $_POST['serieCrianca'];
-        $sexoCrianca  = $_POST['sexoCrianca'];
+        $nomeCrianca  = $conexao->real_escape_string($_POST['nomeCrianca'  ]);
+        $idadeCrianca = $conexao->real_escape_string($_POST['idadeCrianca' ]);
+        $serieCrianca = $conexao->real_escape_string($_POST['serieCrianca' ]);
+        $sexoCrianca  = $conexao->real_escape_string($_POST['sexoCrianca'  ]);
         
         if ($senha == $repitaSenha) {
             $sql = "INSERT INTO cadastro(nomeResponsavel, email, senha, nomeCrianca , idadeCriaca, serieCrianca, sexoCrianca)
