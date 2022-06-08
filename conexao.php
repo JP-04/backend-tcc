@@ -6,8 +6,9 @@
     $dbname="bdpsicokids";
 
     $conexao=mysqli_connect($servidor, $usuario, $senha, $dbname);
+    mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
     if (!$conexao) {
-        die("errou ai cuzao" .mysqli_connect_erro());
+        die("Tente novamente" .mysqli_connect_error());
     }
 
