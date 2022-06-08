@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Jun-2022 às 22:40
+-- Tempo de geração: 08-Jun-2022 às 23:05
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -81,6 +81,7 @@ INSERT INTO `cadastro` (`id`, `nomeResponsavel`, `email`, `senha`, `nomeCrianca`
 --
 
 CREATE TABLE `feedback` (
+  `id` int(11) NOT NULL,
   `relatorio` varchar(250) NOT NULL,
   `nivelJogo` int(1) NOT NULL,
   `garrafas` int(3) NOT NULL
@@ -98,6 +99,12 @@ ALTER TABLE `cadastro`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Índices para tabela `feedback`
+--
+ALTER TABLE `feedback`
+  ADD KEY `id` (`id`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -106,6 +113,16 @@ ALTER TABLE `cadastro`
 --
 ALTER TABLE `cadastro`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- Restrições para despejos de tabelas
+--
+
+--
+-- Limitadores para a tabela `feedback`
+--
+ALTER TABLE `feedback`
+  ADD CONSTRAINT `FKid` FOREIGN KEY (`id`) REFERENCES `cadastro` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
