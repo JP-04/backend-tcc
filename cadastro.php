@@ -8,26 +8,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cadastro</title>
 </head>
 <body>
+    <h1>Criar cadastro</h1>
     <form action="cadastro.php" method="POST">
-        responsável <br>
-        <input type="text" placeholder="nome" name="nome"> <br>
-        <input type="email" placeholder="email" name="email"> <br>
-        <input type="password" placeholder="senha" name="senha"> <br> <br>
-        <input type="password" placeholder="repitaSenha" name="repitaSenha"> <br> <br>
-        criança <br>
-        <input type="text" placeholder="nome da criança" name="nomeCrianca"> <br>
-        <input type="number" placeholder="idade da criança" name="idadeCrianca"> <br>
+        Configuração do responsável <br>
+        <input type="text" placeholder="Nome do responsável" name="nome"> <br>
+        <input type="email" placeholder="E-mail" name="email"> <br>
+        <input type="password" placeholder="Senha" name="senha"> <br> <br>
+        <input type="password" placeholder="Repita a senha" name="repitaSenha"> <br> <br>
+        Configuração da criança <br>
+        <input type="text" placeholder="Nome completo da criança" name="nomeCrianca"> <br>
+        <input type="number" placeholder="Idade" name="idadeCrianca"> <br>
         <input type="number" placeholder="serie escolar" name="serieCrianca"> <br>
-        <input type="text" name="sexoCrianca">
+        <input type="text" name="sexoCrianca" placeholder="Sexo">
         <!-- <span>Sexo da criança </span> <br>
         Feminino<input type="radio" name="sexoCrianca" value="f" checked> <br>
         Masculino<input type="radio" name="sexoCrianca" value="m"> <br> -->
         
 
-        <button>cadastrar</button>
+        <button>Cadastrar</button>
     </form>
   <?php 
         $nome  =$conexao->real_escape_string ( $_POST['nome'  ]);

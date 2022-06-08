@@ -7,61 +7,58 @@
     <title>Configuração</title>
 </head>
 <body>
-    
-    <h1>Configuração</h1>
-    <br>
-
-    <form method="POST">
-    Insira a senha para prosseguir <br> 
-    <input type="password" placeholder="Senha" name="senha"><br><br>
-    <button>Confirmar</button>
+    <form action="acesso.php" method="POST">
+        Insira seu e-mail e senha para prosseguir <br>
+        <input type="text" name="email" placeholder="E-mail"> <br>
+        <input type="password" name="senha" placeholder="Senha"> <br>
+        <button>Confirmar</button>
     </form>
-
 </body>
 </html>
 
 <?php
-    include ('conexao.php');
+        include_once("conexao.php");
     
-    // Verificando se o campo senha está preenchido
-    if (isset($_POST['senha']))
-    {
-        if (strlen($_POST['senha']) == 0)
-        {
-            echo "Por favor, insira sua senha";
-        }
+        if(isset($_POST['email']) || isset($_POST['senha'])){
+            
+            if(strlen($_POST['email']) == 0){
+                echo "preencha o e-mail";
+            } 
+            elseif(strlen($_POST['senha']) == 0){
+                echo "preencha a senha";
+            }
+            
+            else {
+                $email = $conexao->real_escape_string($_POST['email']);
+                $senha = $conexao->real_escape_string($_POST['senha']);
 
-        else
-        { 
-            // Validação da senha de acesso recebida
-            $senha = $conexao->real_escape_string($_POST['senha']);
+                $sql_code = "SELECT * FROM cadastro WHERE email = '$email' AND senha = '$senha'";
+                $sql_query = $conexao->query($sql_code) or die("Falha na execução do Código Sql" . $conexao->error);
+                
+                $quantidade_linhas_retornadas = $sql_query->num_rows;
+                
+                if($quantidade_linhas_retornadas == 1){
 
-            $query = "SELECT * FROM cadastro WHERE senha = '$senha'";
-            $sql_query = $conexao->query($query) or die("Falha ao executar consulta" .$conexao->error);
-        }
+                    $cadastro = $sql_query->fetch_assoc();
+                    
+                    if(!isset($_SESSION)){
+                        session_start();
+                    }
 
-        $linhasRetornadas = $sql_query->num_rows;
+                    $_SESSION['id'] = $cadastro['id'];
+                    $_SESSION['nomeResponsavel'] = $cadastro['nomeResponsavel'];
+                    $_SESSION['email'] = $cadastro['email'];
+                    $_SESSION['nomeCrianca'] = $cadastro['nomeCrianca'];
+                    $_SESSION['idadeCrianca'] = $cadastro['idadeCrianca'];
+                    $_SESSION['serieCrianca'] = $cadastro['serieCrianca'];
+                    $_SESSION['sexoCrianca'] = $cadastro['sexoCrianca'];
 
-        if ($linhasRetornadas == 1)
-        {
-            // Salvando os dados de acesso na variável $usuario
-            $usuario = $sql_query->fetch_assoc();
 
-            // Se a sessão não existir, inicia uma
-            if (!isset($_SESSION))
-            {
-                session_start();
+                    header("Location: dashboard.php");
+                }else{
+                    echo "Falha ao logar! Email ou senha incorretos";
+                }
             }
 
-            // Salva os dados encontrados na sessão
-            $_SESSION['email'] = $usuario['email'];
-            header("Location: dashboard.php");
-            exit;
-        }    
-
-        else
-        {
-            echo "Falha ao acessar! Senha incorreta";
         }
-    }
 ?>
