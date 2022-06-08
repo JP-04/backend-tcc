@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 07-Jun-2022 às 01:41
+-- Tempo de geração: 08-Jun-2022 às 22:40
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -50,90 +50,62 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `crianca`
+-- Estrutura da tabela `cadastro`
 --
 
-CREATE TABLE `crianca` (
-  `idCrianca` int(11) NOT NULL,
+CREATE TABLE `cadastro` (
+  `id` int(3) NOT NULL,
+  `nomeResponsavel` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `senha` varchar(100) NOT NULL,
   `nomeCrianca` varchar(100) NOT NULL,
-  `idade` int(11) NOT NULL,
-  `serie` int(11) NOT NULL,
-  `sexo` varchar(10) NOT NULL,
-  `avaliacao` varchar(10) DEFAULT NULL,
-  `nivel` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `idadeCrianca` int(2) NOT NULL,
+  `serieCrianca` int(2) NOT NULL,
+  `sexoCrianca` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Extraindo dados da tabela `crianca`
+-- Extraindo dados da tabela `cadastro`
 --
 
-INSERT INTO `crianca` (`idCrianca`, `nomeCrianca`, `idade`, `serie`, `sexo`, `avaliacao`, `nivel`) VALUES
-(1, 'joão', 6, 3, 'masculino', 'jcejehfueh', 2),
-(2, '1', 1, 1, '1', '1', 1);
+INSERT INTO `cadastro` (`id`, `nomeResponsavel`, `email`, `senha`, `nomeCrianca`, `idadeCrianca`, `serieCrianca`, `sexoCrianca`) VALUES
+(1, 'Julia', 'julia@gmail.com', '1234', 'craudia dasilva', 13, 7, 'feminino'),
+(2, 'Joao', 'joaovramartins.2004@gmail.com', '1', 'cadastro', 2, 2, 'masculino'),
+(3, 'JP-04.github.zzzz', 'aninha@gmail.com', 'a', 'ana', 3, 22, 'anaa'),
+(6, 'ana', 'ana@gmail.com', 'a', 'ana', 2, 2, 'homi');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `responsavel`
+-- Estrutura da tabela `feedback`
 --
 
-CREATE TABLE `responsavel` (
-  `idResponsavel` int(11) NOT NULL,
-  `nomeResponsavel` varchar(90) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `senhaEmail` varchar(20) NOT NULL,
-  `idCrianca` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Extraindo dados da tabela `responsavel`
---
-
-INSERT INTO `responsavel` (`idResponsavel`, `nomeResponsavel`, `email`, `senhaEmail`, `idCrianca`) VALUES
-(3, 'teste', 'testando@gmail.com', '123456', 1);
+CREATE TABLE `feedback` (
+  `relatorio` varchar(250) NOT NULL,
+  `nivelJogo` int(1) NOT NULL,
+  `garrafas` int(3) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tabelas despejadas
 --
 
 --
--- Índices para tabela `crianca`
+-- Índices para tabela `cadastro`
 --
-ALTER TABLE `crianca`
-  ADD PRIMARY KEY (`idCrianca`);
-
---
--- Índices para tabela `responsavel`
---
-ALTER TABLE `responsavel`
-  ADD PRIMARY KEY (`idResponsavel`),
-  ADD KEY `idCrianca` (`idCrianca`);
+ALTER TABLE `cadastro`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT de tabela `crianca`
+-- AUTO_INCREMENT de tabela `cadastro`
 --
-ALTER TABLE `crianca`
-  MODIFY `idCrianca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT de tabela `responsavel`
---
-ALTER TABLE `responsavel`
-  MODIFY `idResponsavel` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=346;
-
---
--- Restrições para despejos de tabelas
---
-
---
--- Limitadores para a tabela `responsavel`
---
-ALTER TABLE `responsavel`
-  ADD CONSTRAINT `FKidCrianca` FOREIGN KEY (`idCrianca`) REFERENCES `crianca` (`idCrianca`);
+ALTER TABLE `cadastro`
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
