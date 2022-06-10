@@ -7,7 +7,8 @@
     <title>Configuração</title>
 </head>
 <body>
-    <form action="acesso.php" method="POST">
+    <a href="./cadastro.php">cadastar</a>
+    <form action="index.php" method="POST">
         Insira seu e-mail e senha para prosseguir <br>
         <input type="text" name="email" placeholder="E-mail"> <br>
         <input type="password" name="senha" placeholder="Senha"> <br>

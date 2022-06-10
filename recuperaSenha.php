@@ -1,7 +1,7 @@
 <?php
     session_start();
     ob_start();
-    include_once 'conexao.php';
+    include_once './settings/conexao.php';
 
 ?>
 <!DOCTYPE html>
@@ -78,7 +78,7 @@
 
                     if($stmt->execute())
                     {
-                        echo"include_onde 'atualizaSenha.php?$chave_recuperar_senha'";
+                        echo"include_once 'atualizaSenha.php?$chave_recuperar_senha'";
                     }
                     else
                     {

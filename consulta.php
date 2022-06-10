@@ -51,20 +51,17 @@
 
     <form action="consulta.php" method="POST">
     <h1>Dados pessoais</h1><br>
-    Dados do responsável <br><br>
+    <h1>RESPONSÁVEL</h1>
 
-    <input type="text" placeholder="Nome do responsável" name="nomeResponsavel" value="<?=$_SESSION['nomeResponsavel']?>"><br>
-    <input type="email" placeholder="E-mail" name="email" value="<?=$_SESSION['email']?>"><br><br>
-
-    Dados da criança <br><br>
-
-    <input type="text" placeholder="Nome completo da criança" name="nomeCrianca" value="<?=$_SESSION['nomeCrianca']?>"><br>
-    <input type="number" placeholder="Idade" name="idadeCrianca" value="<?=$_SESSION['idadeCrianca']?>"><br>
-    <input type="number" placeholder="serie escolar" name="serieCrianca" value="<?=$_SESSION['serieCrianca']?>"><br>
-    <input type="text" name="sexoCrianca" placeholder="Sexo" value="<?=$_SESSION['sexoCrianca']?>">
-    <br>
-
-    <br><input type="submit" value="Confirmar" name="btn_Confirmar">
+    <input type="text"  placeholder="Nome do responsável" name="nomeResponsavel" value="<?=$_SESSION['nomeResponsavel']?>">
+    <input type="email" placeholder="E-mail" name="email" value="<?=$_SESSION['email']?>">
+    
+    <h1>CRIANÇA</h1>
+    <input type="text"     placeholder="nome"  name="nomeCrianca"  value="<?=$_SESSION['nomeCrianca'] ?>" required >
+    <input type="number"   placeholder="idade" name="idadeCrianca" value="<?=$_SESSION['idadeCrianca']?>" required min="1" max="12">
+    <input type="number"   placeholder="série" name="serieCrianca" value="<?=$_SESSION['serieCrianca']?>" required min="1" max="9">
+    <input type="text"     placeholder="sexo"  value="<?=$_SESSION['sexoCrianca']?>" name="sexoCrianca">
+    <input type="submit" value="Confirmar" name="btn_Confirmar">
 
 
     </form>
