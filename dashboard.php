@@ -16,7 +16,9 @@
 <body>
     <img src="./img/loja.png" alt="" class="loja">
     <img src="./img/laranja.png" alt="" class="laranja">
-    <a href="sair.php"><img src="./img/btn-voltar 4.png" alt="" class="voltar"></a>
+
+    <a href="index.php"><img src="./img/btn-voltar 4.png" alt="" class="voltar"></a>
+
     <section>
         <a href="consulta.php" class="a-blue">Acessar dados pessoais</a>
         <h2>Dashboard</h2>
