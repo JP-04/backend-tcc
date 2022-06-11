@@ -44,25 +44,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./consulta.css">
     <title>Dados pessoais</title>
 </head>
 <body>
-<br><a href="dashboard.php"><button>Voltar</button></a>
+    <img src="./img/loja.png" alt="" class="loja">
+    <img src="./img/laranja.png" alt="" class="laranja">
+    <a href="dashboard.php"><img src="./img/btn-voltar 4.png" alt="" class="voltar"></a>
 
     <form action="consulta.php" method="POST">
-    <h1>Dados pessoais</h1><br>
-    <h1>RESPONSÁVEL</h1>
-
+    <p>*dados do responsável</p> <br>
+    <span>nome</span>
     <input type="text"  placeholder="Nome do responsável" name="nomeResponsavel" value="<?=$_SESSION['nomeResponsavel']?>">
-    <input type="email" placeholder="E-mail" name="email" value="<?=$_SESSION['email']?>">
-    
-    <h1>CRIANÇA</h1>
+    <span>e-mail</span>
+    <input type="email" placeholder="E-mail" name="email" value="<?=$_SESSION['email']?>"> <br>
+    <p>*dados da criança</p><br>
+    <span>nome</span>
     <input type="text"     placeholder="nome"  name="nomeCrianca"  value="<?=$_SESSION['nomeCrianca'] ?>" required >
+    <span>idade</span>
     <input type="number"   placeholder="idade" name="idadeCrianca" value="<?=$_SESSION['idadeCrianca']?>" required min="1" max="12">
+    <span>série</span>
     <input type="number"   placeholder="série" name="serieCrianca" value="<?=$_SESSION['serieCrianca']?>" required min="1" max="9">
+    <span>sexo</span>
     <input type="text"     placeholder="sexo"  value="<?=$_SESSION['sexoCrianca']?>" name="sexoCrianca">
-    <input type="submit" value="Confirmar" name="btn_Confirmar">
-
+    <br>
+    <button type="submit" value="Confirmar" name="btn_Confirmar"><img src="./img/btn-editar.png" alt=""></button>
+    
 
     </form>
     </body>

@@ -4,15 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="./style.css">
+
     <title>Configuração</title>
 </head>
 <body>
-    <a href="./cadastro.php">cadastar</a>
+    <img src="./img/loja.png" alt="" class="loja">
+    <img src="./img/laranja.png" alt="" class="laranja">
     <form action="index.php" method="POST">
-        Insira seu e-mail e senha para prosseguir <br>
-        <input type="text" name="email" placeholder="E-mail"> <br>
-        <input type="password" name="senha" placeholder="Senha"> <br>
-        <button>Confirmar</button>
+
+        <span class="span-blue">CONFIGURAÇÃO</span>
+        <p class="p-blue">*insira email e senha para prosseguir</p>
+
+        <input type="text" name="email" placeholder="e-mail" required> <br>
+        <input type="password" name="senha" placeholder="senha" required> <br>
+
+        <div class="container-btn">
+            <button><img src="./img/btn-confirmar.png" alt="" class="btn"></button>
+            <a href="./cadastro.php">criar cadastro</a>
+        </div>
+        
     </form>
 </body>
 </html>
@@ -57,7 +70,7 @@
 
                     header("Location: dashboard.php");
                 }else{
-                    echo "Falha ao logar! Email ou senha incorretos";
+                    echo " <p>Falha ao logar! Email ou senha incorretos</p>";
                 }
             }
 

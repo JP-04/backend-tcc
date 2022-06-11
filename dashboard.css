@@ -1,0 +1,59 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    padding-left: 20px;
+    padding-top: 50px;
+}
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    grid-gap: 20px;
+    padding: 10px;
+    width: 100%;
+    padding-right: 20px;
+}
+section > .a-blue{
+    color: #5F88FF;
+    font-weight: 600;
+    font-size: 20px;
+} 
+section > h2{
+    color:#A1A1A1;
+    font-weight: 800;
+    font-size: 20px;  
+}
+section > .span-cinza{
+    color:#A1A1A1;
+    font-weight: 200;
+    font-size: 15px;  
+}
+section > p{
+    color:#A1A1A1;
+    font-weight: 200;
+    font-size: 15px; 
+    background: #fff;
+}
+.voltar{
+    height: 30px;
+}
+.loja, .laranja{
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}
+.laranja{
+    left: 20px;
+}
+.loja{
+    right: 20px;
+}

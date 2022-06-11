@@ -1,0 +1,76 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: none;
+}
+body{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    padding-left: 20px;
+    padding-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.voltar{
+    position: absolute;
+    height: 30px;
+    top: 10px;
+    left: 20px;
+}
+.loja, .laranja{
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}
+.laranja{
+    left: 20px;
+}
+.loja{
+    right: 20px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    grid-gap:5px;
+    padding: 10px;
+    padding-right: 20px;
+}
+h1{
+    color: #5F88FF;
+    font-weight: 600;
+    font-size: 20px;
+}
+span{
+    color: #5F88FF;
+}
+input{
+    width: 100%;
+    border: none;
+    border-bottom: solid 1px #A1A1A1;
+    padding-bottom: 5px;
+    outline: none;
+    font-size: 15px;
+    color: #A1A1A1;
+    width: 300px;
+
+}
+p{
+    color:#A1A1A1;
+    font-weight: 100;
+    font-size: 20px;  
+}
+button{
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+button > img{
+    height: 40px;
+}
