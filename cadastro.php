@@ -32,8 +32,8 @@
         <input type="number"    placeholder="série"  name="serieCrianca" required min="1" max="9">
 
         <select name="sexoCrianca"     required>
-                <option value="feminino">feminino</option>
-                <option value="masculino">masculino</option>
+                <option value="feminino">Feminino</option>
+                <option value="masculino">Masculino</option>
         </select>
         <div class="container-btn">
             <button type="submit"><img src="./img/btn-cadastrar.png" alt="" class="btn"></button>
@@ -63,10 +63,10 @@
             echo "<p>AS SENHAS NÃO SÃO IGUAIS</p>";
         }
         if (mysqli_query($conexao, $sql)) {
-            echo "<span>CADASTRO REALIZADO CO SUCESSO</span>";
+            echo "<span>CADASTRO REALIZADO COM SUCESSO</span>";
         }
         else{
-            echo "erro ao cadastrar" .mysqli_connect_error($conexao);
+            echo "Erro ao cadastrar" .mysqli_connect_error($conexao);
             
         }
         mysqli_close($conexao);

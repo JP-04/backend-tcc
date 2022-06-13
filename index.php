@@ -16,14 +16,14 @@
     <form action="index.php" method="POST">
 
         <span class="span-blue">CONFIGURAÇÃO</span>
-        <p class="p-blue">*insira email e senha para prosseguir</p>
+        <p class="p-blue">*Insira e-mail e senha para prosseguir</p>
 
-        <input type="text" name="email" placeholder="e-mail" required> <br>
-        <input type="password" name="senha" placeholder="senha" required> <br>
+        <input type="text" name="email" placeholder="E-mail" required> <br>
+        <input type="password" name="senha" placeholder="Senha" required> <br>
 
         <div class="container-btn">
             <button><img src="./img/btn-confirmar.png" alt="" class="btn"></button>
-            <a href="./cadastro.php">criar cadastro</a>
+            <a href="./cadastro.php">Criar cadastro</a>
         </div>
         
     </form>

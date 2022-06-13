@@ -1,6 +1,6 @@
 <?php header('Access-Control-Allow-Origin: *');
 
-    include_once 'conexao.php';
+    include_once './conexao.php';
 
     // Pegando valores dos campos declarados no construct
     $email = $_GET['email'];
