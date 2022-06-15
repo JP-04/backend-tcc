@@ -16,13 +16,13 @@
     //$consulta = "SELECT * FROM cadastro";
     //$con = $conexao->query($consulta) or die ( $conexao->error);
 
-    $id = $conexao->real_escape_string($_SESSION['id']);
+    /*$id = $conexao->real_escape_string($_SESSION['id']);
     $nomeResponsavel = $conexao->real_escape_string($_SESSION['nomeResponsavel']);
     $email = $conexao->real_escape_string($_SESSION['email']);
     $nomeCrianca = $conexao->real_escape_string($_SESSION['nomeCrianca']);
     $idadeCrianca = $conexao->real_escape_string($_SESSION['idadeCrianca']);
     $serieCrianca = $conexao->real_escape_string($_SESSION['serieCrianca']);
-    $sexoCrianca = $conexao->real_escape_string($_SESSION['sexoCrianca']);
+    $sexoCrianca = $conexao->real_escape_string($_SESSION['sexoCrianca']);*/
 
     $nomeResponsavel = $_POST["nomeResponsavel"];
     $email = $_POST["email"];
@@ -36,6 +36,9 @@
         $atualizacao = "UPDATE cadastro SET nomeResponsavel = '$nomeResponsavel', email = '$email', nomeCrianca = '$nomeCrianca', idadeCrianca = '$idadeCrianca', serieCrianca = '$serieCrianca', sexoCrianca = '$sexoCrianca' WHERE id = '$id'";
 
         mysqli_query($conexao, $atualizacao);
+
+        $_SESSION['sexoCrianca'] = $sexoCrianca;
+                
     }
 ?>
 <!DOCTYPE html>
@@ -68,7 +71,10 @@
     <span>série</span>
     <input type="number"   placeholder="série" name="serieCrianca" value="<?=$_SESSION['serieCrianca']?>" required min="1" max="9">
     <span>sexo</span>
-    <input type="text"     placeholder="sexo"  value="<?=$_SESSION['sexoCrianca']?>" name="sexoCrianca">
+    <select name="sexoCrianca" id="">
+        <option value="feminino" <?php if($_SESSION['sexoCrianca'] == "feminino") echo "selected"; ?>>Feminino</option>
+        <option value="masculino" <?php if($_SESSION['sexoCrianca'] == "masculino") echo "selected"; ?>>Masculino</option>
+    </select>
     <br>
     <button type="submit" value="Confirmar" name="btn_Confirmar"><img src="./img/btn-editar.png" alt=""></button>
     
