@@ -37,6 +37,11 @@
 
         mysqli_query($conexao, $atualizacao);
 
+        $_SESSION['nomeResponsavel'] = $nomeResponsavel;
+        $_SESSION['email'] = $email;
+        $_SESSION['nomeCrianca'] = $nomeCrianca;
+        $_SESSION['idadeCrianca'] = $idadeCrianca;
+        $_SESSION['serieCrianca'] = $serieCrianca;
         $_SESSION['sexoCrianca'] = $sexoCrianca;
                 
     }
